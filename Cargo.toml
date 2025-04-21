@@ -1,0 +1,36 @@
+[workspace]
+resolver = "3"
+# Note that we define member crates with a wildcard here and NOT with explicit paths because the flake.nix is written
+# in a way such that top-level members are built as different derivations which avoid being rebuilt if the other
+# package's sources change.
+members = ["crates/*"]
+
+[workspace.package]
+version     = "0.1.0"
+edition     = "2024"
+license     = "LGPL-3.0"
+authors     = ["Dan Bluhm Hansen <00.pavers_dither@icloud.com>"]
+description = "`collage` is a template engine for Rust, designed for writing HTML and similar markup languages."
+homepage    = "https://github.com/danbluhmhansen/collage"
+repository  = "https://github.com/danbluhmhansen/collage"
+readme      = "README.md"
+keywords    = ["html", "template", "template-engine"]
+categories  = ["accessibility", "development-tools", "no-std", "template-engine", "web-programming"]
+
+[workspace.metadata.crane]
+name = "collage"
+
+[workspace.dependencies]
+cfg-if            = "1.0.0"
+html-escape       = { version = "0.2.13", default-features = false }
+itertools         = "0.14.0"
+itoa              = "1.0.15"
+collage-core       = { version = "0.1.0", path = "crates/collage-core" }
+collage-macros     = { version = "0.1.0", path = "crates/collage-macros" }
+pretty_assertions = "1.4.1"
+proc-macro-error2 = "2.0.1"
+proc-macro2       = "1.0.95"
+quote             = "1.0.40"
+ryu               = "1.0.20"
+syn               = "2.0.100"
+trybuild          = "1.0.104"

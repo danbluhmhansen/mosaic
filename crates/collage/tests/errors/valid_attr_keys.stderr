@@ -1,0 +1,29 @@
+error: attribute keys must start with alphanumeric, `_`, or `:` and only contain those tokens; `-` or `.`
+ --> tests/errors/valid_attr_keys.rs:4:19
+  |
+4 |     markup! { div r#"&<>""#="" {} };
+  |                   ^^^^^^^^^
+
+error: attribute keys must start with alphanumeric, `_`, or `:` and only contain those tokens; `-` or `.`
+ --> tests/errors/valid_attr_keys.rs:5:20
+  |
+5 |     markup! { div ("!id") {} };
+  |                    ^^^^^
+
+error: attribute keys must start with alphanumeric, `_`, or `:` and only contain those tokens; `-` or `.`
+ --> tests/errors/valid_attr_keys.rs:6:44
+  |
+6 |     markup! { div (if true { "id" } else { "!id" }) {} };
+  |                                            ^^^^^
+
+error: attribute keys must start with alphanumeric, `_`, or `:` and only contain those tokens; `-` or `.`
+ --> tests/errors/valid_attr_keys.rs:7:61
+  |
+7 |     markup! { div (match true { true => { "id" } false => { "!id" } }) {} };
+  |                                                             ^^^^^
+
+error: unsupported attribute key expression
+ --> tests/errors/valid_attr_keys.rs:9:20
+  |
+9 |     markup! { div (key) {} };
+  |                    ^^^

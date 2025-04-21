@@ -1,0 +1,17 @@
+# Sorts `Cargo.toml` dependencies. All other `.toml` files are formatted with the default config.
+#
+# https://taplo.tamasfe.dev/configuration/file.html#configuration-file
+
+exclude = [".direnv/**"]
+
+[formatting]
+align_entries  = true
+column_width   = 120
+reorder_arrays = true
+
+[[rule]]
+include = ["**/Cargo.toml", "Cargo.toml"]
+keys    = ["dependencies", "workspace.dependencies"]
+
+[rule.formatting]
+reorder_keys = true

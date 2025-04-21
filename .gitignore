@@ -1,0 +1,11 @@
+# direnv
+.direnv
+
+# pre-commit
+.pre-commit-config.yaml
+
+# cargo
+/target
+
+# nix
+result*

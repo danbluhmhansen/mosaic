@@ -1,0 +1,29 @@
+[package]
+name                  = "collage"
+version.workspace     = true
+edition.workspace     = true
+license.workspace     = true
+authors.workspace     = true
+description.workspace = true
+homepage.workspace    = true
+repository.workspace  = true
+readme.workspace      = true
+keywords.workspace    = true
+categories.workspace  = true
+
+[dependencies]
+cfg-if.workspace        = true
+html-escape             = { workspace = true, default-features = false }
+itoa                    = { workspace = true, optional = true }
+collage-core.workspace   = true
+collage-macros.workspace = true
+ryu                     = { workspace = true, optional = true }
+
+[dev-dependencies]
+pretty_assertions.workspace = true
+trybuild.workspace          = true
+
+[features]
+default = ["itoa", "ryu"]
+itoa    = ["dep:itoa"]
+ryu     = ["dep:ryu"]
